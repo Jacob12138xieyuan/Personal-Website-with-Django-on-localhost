@@ -1,7 +1,126 @@
-<h1>Edit Project</h1>
-<h2>{{project.name}}</h2>
+<!doctype html>
+<html lang="en">
+{% load static %}
 
-<form action="" enctype="multipart/form-data" method="post">
-  {% csrf_token %} {{ editForm.as_p }}
-  <button type="submit">Save change</button>
-</form>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <title>Jacob's Project</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+  <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+  <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#563d7c">
+
+
+  <style>
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      width: 50%;
+      background-color: #45a049;
+    }
+    .form {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">Add some information about the album below, the author, or any other background
+              context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off
+              to some social networking sites or contact information.</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://www.instagram.com/i_love_jacob12138/" class="text-white">Follow on Instagram</a></li>
+              <li><a href="#" class="text-white">Like on Facebook</a></li>
+              <li><a href="mailto:xiey0017@ntu.edu.sg" class="text-white">Email me</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <strong>Edit Project</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class='form'>
+    <form action="" enctype="multipart/form-data" method="post">
+      {% csrf_token %} {{ editForm.as_p }}
+      <button type="submit">Save change</button>
+    </form>
+  </div>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p style="text-align: center;">&copy; XIE YUAN (Jacob) Associates 2020</p>
+    </div>
+  </footer>
+  <script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+  <script src="{% static 'popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</html>
+
