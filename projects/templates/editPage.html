@@ -1,15 +1,7 @@
-<h1>Edit project</h1>
+<h1>Edit Project</h1>
 <h2>{{project.name}}</h2>
 
-<!-- <form action="{% url 'editPage' project.id %}" method="post">
-  {% csrf_token %}
-  <label for="name">Name: </label>
-  <input id="name" type="text" />
-  <label for="image">Image: </label>
-  <input id="image" type="file" />
-  <label for="summary">Summary: </label>
-  <input id="summary" type="text" />
-  <label for="detail">Detail: </label>
-  <input id="detail" type="text" />
-  <input type="submit" value="Save" />
-</form> -->
+<form action="" enctype="multipart/form-data" method="post">
+  {% csrf_token %} {{ editForm.as_p }}
+  <button type="submit">Save change</button>
+</form>

@@ -1,6 +1,6 @@
 <h1>Create New Project</h1>
 
-<form action="" method="POST">
-  {{ createForm }}
-  <input type="submit" />
+<form action="" enctype="multipart/form-data" method="POST">
+  {% csrf_token %} {{ createForm.as_p }}
+  <button type="submit">Create</button>
 </form>

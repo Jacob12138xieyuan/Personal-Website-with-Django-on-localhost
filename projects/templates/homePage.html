@@ -59,7 +59,7 @@
             <h4 class="text-white">Contact</h4>
             <ul class="list-unstyled">
               <li><a href="https://www.instagram.com/i_love_jacob12138/" class="text-white">Follow on Instagram</a></li>
-              <li><a href="#" class="text-white">Like on Facebook</a></li>
+              <li><a href="https://www.facebook.com/jacob.xie.94" class="text-white">Like on Facebook</a></li>
               <li><a href="mailto:xiey0017@ntu.edu.sg" class="text-white">Email me</a></li>
             </ul>
           </div>
@@ -96,14 +96,15 @@
         <img src="{% static 'xy.jpg' %}" height=300></img>
         <p>
           <a href="mailto:xiey0017@ntu.edu.sg" class="btn btn-primary my-2">Email me</a>
-          <a href="https://github.com/Jacob12138xieyuan" class="btn btn-secondary my-2">View my Github</a>
+          <a href="https://github.com/Jacob12138xieyuan" class="btn btn-primary my-2">View my Github</a>
+          <hr>
+          <a href="{% url 'createPage' %}" class="btn btn-secondary my-2">Create new project</a>
         </p>
       </div>
     </section>
 
     <div class="album py-5 bg-light">
       <div class="container">
-
         <div class="row">
           {% for project in projects %}
           <div class="col-md-4">

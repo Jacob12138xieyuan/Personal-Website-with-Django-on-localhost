@@ -16,13 +16,27 @@ def detailPage(request, project_id):
 
 
 def createPage(request):
-    createForm = ProjectForm(request.POST)
+    createForm = ProjectForm()
+    if request.method == 'POST':
+        createForm = ProjectForm(request.POST, request.FILES)
+        if createForm.is_valid():
+            createForm.save()
+            print("create successful")
+            return redirect('homePage')
+        else:
+            print("invalid form, fill in again...")
     return render(request, 'createPage.html', {'createForm': createForm})
 
 
 def editPage(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
-    form = ProjectForm(instance=project)
-    #form = EditForm()
-    #project = get_object_or_404(Project, pk=project_id)
-    return render(request, 'editPage.html', {'project': project})
+    editForm = ProjectForm(instance=project)
+    if request.method == 'POST':
+        editForm = ProjectForm(request.POST, request.FILES, instance=project)
+        if editForm.is_valid():
+            editForm.save()
+            print("edit successful")
+            return redirect('homePage')
+        else:
+            print("invalid form, fill in again...")
+    return render(request, 'editPage.html', {'editForm': editForm})
