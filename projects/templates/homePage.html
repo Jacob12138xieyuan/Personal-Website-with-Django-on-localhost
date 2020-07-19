@@ -51,15 +51,14 @@
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
             <h4 class="text-white">About</h4>
-            <p class="text-muted">Add some information about the album below, the author, or any other background
-              context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off
-              to some social networking sites or contact information.</p>
+            <p class="text-muted">This is XIE YUAN's personal portfolio website. Here you can know more about his personal information and what he has been doing recently. </p>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="text-white">Contact</h4>
             <ul class="list-unstyled">
               <li><a href="https://www.instagram.com/i_love_jacob12138/" class="text-white">Follow on Instagram</a></li>
               <li><a href="https://www.facebook.com/jacob.xie.94" class="text-white">Like on Facebook</a></li>
+              <li><a href="https://www.linkedin.com/in/xie-yuan-34a5b015b/" class="text-white">Connect on LinkedIn</a></li>
               <li><a href="mailto:xiey0017@ntu.edu.sg" class="text-white">Email me</a></li>
             </ul>
           </div>
@@ -89,16 +88,19 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1>XIE YUAN (Jacob)</h1>
-        <p class="text-black-80">Xie Yuan is a final-year student studying at Electric and Electronic Engineering,
+        <p class="text-black-80" style="font-size: 1.5rem;">Xie Yuan is a final-year student studying at Electric and Electronic Engineering,
           Nanyang Technological University. He had two internship experiences, deep learning engineer at Graymatics and
           AI solution specialist at IBM Singapore. Data science, machine learning and software development attract him
-          most. He is result-driven and committed to excellence. </p>
+          most. He is result-driven and committed to excellence. His technical skills are: 
+          Machine Learning: OpenCV, Pandas, TensorFlow, Keras, NLTK, scikit-learn 
+          Web development: Node.js, express, Django, react, ESLint, JWT, Heroku, AWS, GitHub
+          Programming Languages: Python, JavaScript, C, Java, HTML, CSS 
+          Database: MongoDB, MySQL, SQLite
+          </p>
         <img src="{% static 'xy.jpg' %}" height=300></img>
         <p>
-          <a href="mailto:xiey0017@ntu.edu.sg" class="btn btn-primary my-2">Email me</a>
-          <a href="https://github.com/Jacob12138xieyuan" class="btn btn-primary my-2">View my Github</a>
-          <hr>
-          <a href="{% url 'createPage' %}" class="btn btn-secondary my-2">Create new project</a>
+          <a href="{% url 'createPage' %}" class="btn btn-primary my-2">Create new project</a>
+          <a href="https://github.com/Jacob12138xieyuan" class="btn btn-primary my-2">View my Github</a> 
         </p>
       </div>
     </section>

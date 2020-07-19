@@ -84,13 +84,13 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1>{{project.name}}</h1>
-        <p class="text-black-80">{{project.summary}}</p>
-        <img src="{{ project.image.url }}" height=300></img>
+        <p class="text-black-80" style="font-size: 1.5rem;">{{project.summary}}</p>
+        <img src="{{ project.image.url }}" height=500></img>
         <p>
           <a href="{% url 'homePage'%}" class="btn btn-primary my-2">Back homepage</a>
-          <a href="https://github.com/Jacob12138xieyuan" class="btn btn-secondary my-2">View my Github</a>
+          <a href="{{project.github_link}}" class="btn btn-secondary my-2">View my Github</a>
         </p>
-        <p>{{project.detail}}</p>
+        <p style="font-size: 2rem; text-align: left;">{{project.detail}}</p>
       </div>
     </section>
   </main>
