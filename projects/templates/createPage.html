@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 {% load static %}
+{% load widget_tweaks %}
 
 <head>
   <meta charset="utf-8">
@@ -37,7 +38,6 @@
       border-radius: 4px;
       cursor: pointer;
     }
-
     .form {
       width: 100%;
       padding: 12px 20px;
@@ -102,11 +102,20 @@
     </div>
   </header>
 
-  <div class='form'>
-    <form action="" enctype="multipart/form-data" method="POST">
-      {% csrf_token %} {{ createForm.as_p }}
-      <button type="submit">Create now</button>
-    </form>
+  <div class="container">
+    <div class='form'>
+      <form action="" enctype="multipart/form-data" method="POST">
+        {% csrf_token %} 
+        {% for field in createForm %}
+        <div class="form-group">
+        {{ field.errors }}
+        {{ field.label_tag }}
+        {% render_field field class="form-control" %}
+        </div>
+        {% endfor %}
+        <input type="submit" value="Create now">
+      </form>
+    </div>
   </div>
 
   <footer class="text-muted">

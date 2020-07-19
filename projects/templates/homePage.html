@@ -93,20 +93,25 @@
           AI solution specialist at IBM Singapore. Data science, machine learning and software development attract him
           most. He is result-driven and committed to excellence. 
         </p>
+        <br>
         
-        
-        <img src="{% static 'xy.jpg' %}" height=300></img>
+        <img src="{% static 'xy.jpg' %}" height=350></img>
+        <br>
+        <br>
+        <br>
         <p>
           <a href="{% url 'createPage' %}" class="btn btn-primary my-2">Create new project</a>
           <a href="https://github.com/Jacob12138xieyuan" class="btn btn-primary my-2">View my Github</a> 
         </p>
+        <br>
         <hr>
-        <p class="text-black-80" style="font-size: 1.2rem;">His technical skills are:</p>
+        <p class="text-black-80" style="font-size: 1.2rem; font-weight: 500;">My technical skills are:</p>
         <p class="text-black-80" style="font-size: 1rem;">Hardware: Arduino, Raspberry Pi, 3D Printer, Flight Controller</p>  
         <p class="text-black-80" style="font-size: 1rem;">Machine Learning: OpenCV, Pandas, TensorFlow, Keras, NLTK, scikit-learn</p> 
         <p class="text-black-80" style="font-size: 1rem;">Web development: Node.js, express, Django, react, ESLint, JWT, Heroku, AWS, GitHub</p>
         <p class="text-black-80" style="font-size: 1rem;">Programming Languages: Python, JavaScript, C, Java, HTML, CSS</p>  
         <p class="text-black-80" style="font-size: 1rem;">Database: MongoDB, MySQL, SQLite.</p>     
+        <hr>
       </div>
     </section>
 
@@ -120,6 +125,8 @@
                 <img class="card-img-top" src="{{ project.image.url }}">
               </a>
               <div class="card-body">
+                <p class="card-text" style="font-size: 1.3rem; font-weight:500;">{{ project.name }}</p>
+                <hr>
                 <p class="card-text">{{ project.summary }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">

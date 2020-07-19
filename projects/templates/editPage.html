@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 {% load static %}
+{% load widget_tweaks %}
 
 <head>
   <meta charset="utf-8">
@@ -29,7 +30,7 @@
   <style>
     input[type=submit] {
       width: 100%;
-      background-color: #4CAF50;
+      background-color: #3273a8;
       color: white;
       padding: 14px 20px;
       margin: 8px 0;
@@ -37,11 +38,7 @@
       border-radius: 4px;
       cursor: pointer;
     }
-
-    input[type=submit]:hover {
-      width: 50%;
-      background-color: #45a049;
-    }
+    
     .form {
       width: 100%;
       padding: 12px 20px;
@@ -104,11 +101,20 @@
     </div>
   </header>
 
-  <div class='form'>
-    <form action="" enctype="multipart/form-data" method="post">
-      {% csrf_token %} {{ editForm.as_p }}
-      <button type="submit">Save change</button>
-    </form>
+  <div class="container">
+    <div class='form'>
+      <form action="" enctype="multipart/form-data" method="POST">
+        {% csrf_token %} 
+        {% for field in editForm %}
+        <div class="form-group">
+        {{ field.errors }}
+        {{ field.label_tag }}
+        {% render_field field class="form-control" %}
+        </div>
+        {% endfor %}
+        <input type="submit" value="Save changes">
+      </form>
+    </div>
   </div>
 
   <footer class="text-muted">

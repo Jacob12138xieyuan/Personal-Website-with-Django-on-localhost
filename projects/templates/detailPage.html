@@ -84,15 +84,25 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1>{{project.name}}</h1>
-        <p class="text-black-80" style="font-size: 1.5rem;">{{project.summary}}</p>
-        <img src="{{ project.image.url }}" height=500></img>
+        <br>
+        <p class="text-black-80" style="font-size: 1.5rem;">Summary: {{project.summary}}</p>
+        <br>        
+        <img src="{{ project.image.url }}" height=400></img>
+        <br>
+        <br>
         <p>
-          <a href="{% url 'homePage'%}" class="btn btn-primary my-2">Back homepage</a>
-          <a href="{{project.github_link}}" class="btn btn-secondary my-2">View my Github</a>
+          <a href="{% url 'homePage'%}" class="btn btn-primary my-2">Back to homepage</a>
+          <a href="{{project.github_link}}" class="btn btn-secondary my-2">View project Github</a>
         </p>
-        <p style="font-size: 2rem; text-align: left;">{{project.detail}}</p>
       </div>
     </section>
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <h3>Project Detail:</h3>
+        <br>
+        <p style="font-size: 1.5rem; text-align: left;">{{project.detail}}</p>
+      </div>
+    </div>
   </main>
 
   <footer class="text-muted">
