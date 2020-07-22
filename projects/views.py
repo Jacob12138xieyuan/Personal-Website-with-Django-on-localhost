@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from .models import Project
 from .forms import ProjectForm
 # Create your views here.
@@ -7,6 +8,7 @@ from .forms import ProjectForm
 
 def homePage(request):
     projects = Project.objects.all()
+    print(request.user)
     return render(request, 'homePage.html', {'projects': projects})
 
 
@@ -15,6 +17,7 @@ def detailPage(request, project_id):
     return render(request, 'detailPage.html', {'project': project})
 
 
+@login_required(login_url='loginPage')
 def createPage(request):
     createForm = ProjectForm()
     if request.method == 'POST':
@@ -28,6 +31,7 @@ def createPage(request):
     return render(request, 'createPage.html', {'createForm': createForm})
 
 
+@login_required(login_url='loginPage')
 def editPage(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
     editForm = ProjectForm(instance=project)

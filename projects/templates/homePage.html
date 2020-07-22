@@ -83,9 +83,20 @@
             <circle cx="12" cy="13" r="4" /></svg>
           <strong>HOME</strong>
         </a>
-        <span class="greeting">Hello, {{ request.user }}</span>
+        {% if request.user.is_authenticated %}
+        <span class="greeting">Hello, {{ request.user }}!</span>
+        {% else %}
+        <span class="greeting">Hello, there!</span>
+        {% endif %}
         <div>
-          <span><a class="logout" href="{% url 'logoutUser' %}">Logout</a></span>
+          {% if request.user.is_authenticated %}
+          <span><a class="logout" href="{% url 'logoutUser' %}">Logout</a></span>  
+          {% else %}
+          <span><a class="logout" href="{% url 'loginPage' %}">Login</a></span>
+          <span class="logout"> | </span>
+          <span><a class="logout" href="{% url 'registerPage' %}">Sign up</a></span>
+          {% endif %}
+          
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
             aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

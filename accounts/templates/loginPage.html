@@ -126,14 +126,21 @@
             </form>
           </div>
 
-          {% for message in messages %}
-          <p style="text-align: center;">{{ message }}</p>
-          {% endfor %}
+          {% for message in messages %} {% if message.tags != "success" %}
+          <p style="text-align: center; color: red;">{{ message }}</p>
+          {% else %}
+          <p style="text-align: center; color: seagreen;">{{ message }}</p>
+          {% endif %} {% endfor %}
 
           <div class="mt-4">
             <div class="d-flex justify-content-center links">
               Don't have an account?
               <a href="{% url 'registerPage' %}" class="ml-2">Sign Up</a>
+            </div>
+            <br />
+            <div class="d-flex justify-content-center links">
+              Log in as guest user?
+              <a href="{% url 'homePage' %}" class="ml-2">Go to homePage</a>
             </div>
           </div>
         </div>

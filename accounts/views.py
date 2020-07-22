@@ -8,37 +8,41 @@ from .forms import RegisterUserForm
 
 
 def loginPage(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+    if request.user.is_authenticated:
+        return redirect('homePage')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
 
-        user = authenticate(request, username=username, password=password)
+            user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return redirect('homePage')
-        else:
-            messages.info(request, 'Username or password is incorrect')
+            if user is not None:
+                login(request, user)
+                return redirect('homePage')
+            else:
+                messages.info(request, 'Username or password is incorrect')
 
-    context = {}
-    return render(request, 'loginPage.html', context)
+        context = {}
+        return render(request, 'loginPage.html', context)
 
 
 def registerPage(request):
-    registerForm = RegisterUserForm()
+    if request.user.is_authenticated:
+        return redirect('homePage')
+    else:
+        registerForm = RegisterUserForm()
 
-    if request.method == 'POST':
-        registerForm = RegisterUserForm(request.POST)
-        if registerForm.is_valid():
-            registerForm.save()
-            username = registerForm.cleaned_data.get('username')
-            messages.success(request, 'Account is created for '+username)
-            return redirect('loginPage')
-        else:
-            print("Fail to register")
+        if request.method == 'POST':
+            registerForm = RegisterUserForm(request.POST)
+            if registerForm.is_valid():
+                registerForm.save()
+                username = registerForm.cleaned_data.get('username')
+                messages.success(request, 'Account is created for '+username)
+                return redirect('loginPage')
 
-    context = {'registerForm': registerForm}
-    return render(request, 'registerPage.html', context)
+        context = {'registerForm': registerForm}
+        return render(request, 'registerPage.html', context)
 
 
 def logoutUser(request):
