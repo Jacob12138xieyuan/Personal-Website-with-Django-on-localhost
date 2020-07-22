@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -22,7 +23,10 @@ from projects import views as projectsView
 from accounts import views as accountsView
 
 urlpatterns = [
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        accountsView.activate, name='activate'),
     path('admin/', admin.site.urls, name='admin'),
+    path('', projectsView.homePage, name='homePage'),
     path('home', projectsView.homePage, name='homePage'),
     path('login', accountsView.loginPage, name='loginPage'),
     path('logout', accountsView.logoutUser, name='logoutUser'),
