@@ -27,6 +27,14 @@
 
 
   <style>
+    .greeting {
+      font-size: 18px;
+      color: #fff;
+    }
+    .logout {
+      font-size: 20px;
+      color: azure;
+    }
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -75,10 +83,14 @@
             <circle cx="12" cy="13" r="4" /></svg>
           <strong>HOME</strong>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
-          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <span class="greeting">Hello, {{ request.user }}</span>
+        <div>
+          <span><a class="logout" href="{% url 'logoutUser' %}">Logout</a></span>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+            aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -134,7 +146,7 @@
                       <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                     </a>    
                   </div>
-                  <small class="text-muted">9 mins</small>
+                  <small class="text-muted">{{ project.submission_date|timesince }}</small>
                 </div>
               </div>
             </div>
