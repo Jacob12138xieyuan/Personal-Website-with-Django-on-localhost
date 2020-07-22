@@ -56,8 +56,6 @@ def registerPage(request):
                     'token': account_activation_token.make_token(user),
                 })
                 userEmail = registerForm.cleaned_data.get('email')
-                print('uid ' + urlsafe_base64_encode(force_bytes(user.pk)))
-                print('token ' + account_activation_token.make_token(user))
                 print(message)
                 email = EmailMessage(
                     email_subject,
@@ -66,7 +64,7 @@ def registerPage(request):
                     to=[userEmail]
                 )
                 email.send()
-                return HttpResponse('Please confirm your email address to complete the registration')
+                return render(request, 'waitEmailPage.html')
 
         context = {'registerForm': registerForm}
         return render(request, 'registerPage.html', context)
@@ -78,7 +76,6 @@ def logoutUser(request):
 
 
 def activate(request, uidb64, token):
-    print('activate...')
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
